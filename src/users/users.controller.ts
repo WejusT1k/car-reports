@@ -14,12 +14,12 @@ import {
 import { CreateUserDto } from './dto/createUserDto';
 import { UpdateUserDto } from './dto/updateUserDto';
 import { UsersService } from './users.service';
-import { Serialize } from 'src/interceptors/serialize.interceptor';
+import { Serialize } from '../interceptors/serialize.interceptor';
 import { UserDto } from './dto/userDto';
 import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators/currentUser.decorator';
 import { User } from './user.entity';
-import { AuthGuard } from 'src/guards/authGuard.guard';
+import { AuthGuard } from '../guards/authGuard.guard';
 
 @Controller('auth')
 @Serialize(UserDto)
@@ -29,7 +29,7 @@ export class UsersController {
     private authService: AuthService
   ) {}
 
-  @Get('whoami')
+  @Get('/whoami')
   @UseGuards(AuthGuard)
   whoAmI(@CurrentUser() user: User) {
     return user;
