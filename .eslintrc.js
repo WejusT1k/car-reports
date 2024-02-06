@@ -15,7 +15,7 @@ module.exports = {
     node: true,
     jest: true,
   },
-  ignorePatterns: ['.eslintrc.js'],
+  ignorePatterns: ['.eslintrc.js','migrations/*'],
   rules: {
     'comma-dangle': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
